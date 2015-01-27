@@ -37,7 +37,7 @@
             status: 'START'
           }).success(function() {
             $scope.error = false;
-            // refresh box data
+            getAllJiffyBoxes();
           }).error(function(data, status) {
             $scope.error = true;
             $scope.message = data + ' ' + status;
@@ -51,7 +51,7 @@
             status: 'SHUTDOWN'
           }).success(function() {
             $scope.error = false;
-            // refresh box data
+            getAllJiffyBoxes();
           }).error(function(data, status) {
             $scope.error = true;
             $scope.message = data + ' ' + status;
@@ -68,7 +68,7 @@
             }
           }).success(function() {
             $scope.error = false;
-            // refresh box data
+            getAllJiffyBoxes();
           }).error(function(data, status) {
             $scope.error = true;
             $scope.message = data + ' ' + status;
@@ -85,7 +85,7 @@
             }
           }).success(function() {
             $scope.error = false;
-            // refresh box data
+            getAllJiffyBoxes();
           }).error(function(data, status) {
             $scope.error = true;
             $scope.message = data + ' ' + status;
