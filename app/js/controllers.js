@@ -19,9 +19,7 @@
           key: 'jbAccessToken'
         }).select('value')[0];
 
-        if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          getAllJiffyBoxes();
-        }
+        getAllJiffyBoxes();
       });
 
       $scope.savePreferences = function(jbAccessToken) {
@@ -30,9 +28,7 @@
           value: jbAccessToken
         }, 'key');
         $scope.jbAccessToken = jbAccessToken;
-        if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          getAllJiffyBoxes();
-        }
+        getAllJiffyBoxes();
       };
 
       $scope.start = function(boxId) {
