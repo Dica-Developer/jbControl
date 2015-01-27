@@ -33,7 +33,9 @@
 
       $scope.start = function(boxId) {
         if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId + '?status=START').success(function() {
+          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId, {
+            status: 'START'
+          }).success(function() {
             $scope.error = false;
             // refresh box data
           }).error(function(data, status) {
@@ -45,7 +47,9 @@
 
       $scope.stop = function(boxId) {
         if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId + '?status=SHUTDOWN').success(function() {
+          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId, {
+            status: 'SHUTDOWN'
+          }).success(function() {
             $scope.error = false;
             // refresh box data
           }).error(function(data, status) {
@@ -57,7 +61,12 @@
 
       $scope.freeze = function(boxId) {
         if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId + '?status=FREEZE').success(function() {
+          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId, {
+            status: 'FREEZE',
+            metadata: {
+              freezeStart: Date.now()
+            }
+          }).success(function() {
             $scope.error = false;
             // refresh box data
           }).error(function(data, status) {
@@ -69,7 +78,12 @@
 
       $scope.thaw = function(boxId) {
         if (Utils.isOnline() && null !== $scope.jbAccessToken) {
-          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId + '?status=THAW').success(function() {
+          $http.put('https://api.jiffybox.de/' + $scope.jbAccessToken + '/v1.0/jiffyBoxes/' + boxId, {
+            status: 'THAW',
+            metadata: {
+              thawStart: Date.now()
+            }
+          }).success(function() {
             $scope.error = false;
             // refresh box data
           }).error(function(data, status) {
